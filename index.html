@@ -167,11 +167,29 @@
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div id="yt" aria-hidden="true" style="position:fixed;width:1px;height:1px;left:-9999px;top:0;opacity:0;pointer-events:none"></div>
 
 <script>
 (function(){
   "use strict";
   var reduce = matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+  /* ---------- Música: Goo Goo Dolls — Iris (player oficial do YouTube) ---------- */
+  var YT_ID="NdYWuo9OFAw";
+  var ytPlayer=null, ytReady=false, wantMusic=false;
+  window.onYouTubeIframeAPIReady=function(){
+    try{
+      ytPlayer=new YT.Player("yt",{
+        videoId:YT_ID,
+        playerVars:{playsinline:1,controls:0,disablekb:1,modestbranding:1,rel:0,fs:0,loop:1,playlist:YT_ID},
+        events:{ onReady:function(){ ytReady=true; if(wantMusic) startMusic(); } }
+      });
+    }catch(e){}
+  };
+  function startMusic(){
+    if(!ytPlayer||!ytReady) return;
+    try{ ytPlayer.setVolume(55); if(typeof muted!=="undefined" && muted){ ytPlayer.mute(); } else { ytPlayer.unMute(); } ytPlayer.playVideo(); }catch(e){}
+  }
 
   /* ---------- Dados do evento ---------- */
   var EVENT = new Date("2026-08-22T11:00:00-03:00");
@@ -221,7 +239,12 @@
     });
   }
   var muteBtn=document.getElementById("mute");
-  muteBtn.addEventListener("click",function(){muted=!muted;muteBtn.textContent=muted?"🔈":"🔊";muteBtn.setAttribute("aria-pressed",muted);});
+  muteBtn.addEventListener("click",function(){
+    muted=!muted;
+    muteBtn.textContent=muted?"🔈":"🔊";
+    muteBtn.setAttribute("aria-pressed",muted);
+    if(ytPlayer&&ytReady){ try{ if(muted){ ytPlayer.mute(); } else { ytPlayer.unMute(); if(wantMusic) ytPlayer.playVideo(); } }catch(e){} }
+  });
 
   /* ---------- Abertura ---------- */
   var intro=document.getElementById("intro"), stage=document.getElementById("stage");
@@ -230,6 +253,7 @@
     if(intro.classList.contains("gone")) return;
     var x=(e&&e.clientX)||innerWidth/2, y=(e&&e.clientY)||innerHeight/2;
     ripple(x,y); actx(); chime([523.25,659.25,783.99,1046.5],0.9);
+    wantMusic=true; startMusic();
     intro.classList.add("gone");
     document.body.classList.add("revealed");
     setTimeout(function(){intro.style.display="none";},850);
@@ -324,6 +348,7 @@
   if(!reduce) loop();
 })();
 </script>
+<script src="https://www.youtube.com/iframe_api"></script>
 
 </body>
 </html>
