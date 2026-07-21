@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pool Party — 15 anos da Isabella">
+<meta property="og:description" content="Sábado, 22/08 · 11h às 17h · Espaço Azul. Toque para abrir o convite 🌺🏊">
+<meta property="og:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_3AfHXtTLFlASWvrXlhevIeftdpE/173705f0-87ff-4fc6-815c-c6f0fc9bed3b.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e5a70">
+<title>Pool Party — 15 anos da Isabella</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<style>
+  :root{
+    --agua-funda:#0e5a70; --agua:#6fb9c6; --agua-clara:#bfe6ea;
+    --tinta:#063648; --hibisco:#c9315f; --coral:#f2714e; --amarelo:#f4c84a;
+    --creme:#f7fbfb; --vidro:rgba(255,255,255,.22); --vidro-borda:rgba(255,255,255,.5);
+    --sombra:0 26px 60px -18px rgba(6,54,72,.6), 0 8px 20px -10px rgba(6,54,72,.45);
+    --serif:Georgia,"Times New Roman",serif;
+    --script:"Snell Roundhand","Savoye LET","Apple Chancery","Segoe Script",cursive;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%}
+  body{
+    font-family:var(--sans); color:var(--tinta);
+    background:
+      radial-gradient(120% 80% at 50% -10%, #d8f2f2 0%, #9fd6dd 32%, #5fabbb 62%, #2b7f92 100%) fixed;
+    overflow-x:hidden;
+  }
+  .caustics{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;mix-blend-mode:soft-light;
+    background:
+      radial-gradient(40% 26% at 20% 30%, #fff 0%, transparent 60%),
+      radial-gradient(34% 22% at 78% 22%, #fff 0%, transparent 60%),
+      radial-gradient(46% 30% at 60% 78%, #fff 0%, transparent 62%),
+      radial-gradient(30% 20% at 32% 66%, #fff 0%, transparent 60%);
+    animation:drift 18s ease-in-out infinite alternate;}
+  @keyframes drift{from{transform:translate3d(-2%,-1%,0) scale(1.02)}to{transform:translate3d(3%,2%,0) scale(1.08)}}
+  #petals{position:fixed;inset:0;z-index:2;pointer-events:none}
+
+  .stage{position:relative;z-index:1;min-height:100dvh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:clamp(14px,2.4vh,26px);
+    padding:calc(env(safe-area-inset-top) + 18px) 16px calc(env(safe-area-inset-bottom) + 20px);}
+
+  .countdown{display:flex;flex-direction:column;align-items:center;gap:8px;
+    opacity:0;transform:translateY(-10px);transition:.9s .5s cubic-bezier(.16,1,.3,1)}
+  .revealed .countdown{opacity:1;transform:none}
+  .countdown .rot{font-family:var(--script);font-size:clamp(1.15rem,4.6vw,1.5rem);color:#eafcff;
+    letter-spacing:.3px;text-shadow:0 1px 6px rgba(6,54,72,.5);line-height:1}
+  .clock{display:flex;gap:8px}
+  .unit{min-width:58px;padding:8px 6px 6px;border-radius:14px;text-align:center;
+    background:var(--vidro);border:1px solid var(--vidro-borda);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+    box-shadow:0 8px 20px -12px rgba(6,54,72,.55)}
+  .unit b{display:block;font-size:clamp(1.3rem,5.6vw,1.7rem);font-weight:700;color:#fff;
+    font-variant-numeric:tabular-nums;line-height:1;text-shadow:0 1px 4px rgba(6,54,72,.4)}
+  .unit span{display:block;margin-top:4px;font-size:.6rem;text-transform:uppercase;letter-spacing:.14em;color:#eafcff;opacity:.9}
+
+  .card-wrap{perspective:1200px;opacity:0;transform:translateY(26px) scale(.96);
+    transition:1.05s .15s cubic-bezier(.16,1,.3,1)}
+  .revealed .card-wrap{opacity:1;transform:none}
+  .card{position:relative;width:min(90vw,430px);border-radius:20px;overflow:hidden;
+    box-shadow:var(--sombra);will-change:transform;transform-style:preserve-3d;
+    animation:float 7s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  .card img{display:block;width:100%;height:auto}
+  .card::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;opacity:.55;
+    background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 47%,transparent 64%);
+    background-size:220% 220%;animation:sheen 6.5s ease-in-out infinite}
+  @keyframes sheen{0%{background-position:120% 0}55%,100%{background-position:-40% 0}}
+
+  .actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:min(90vw,430px);
+    opacity:0;transform:translateY(14px);transition:.9s .7s cubic-bezier(.16,1,.3,1)}
+  .revealed .actions{opacity:1;transform:none}
+  .btn{appearance:none;border:1px solid var(--vidro-borda);cursor:pointer;text-decoration:none;
+    font-family:var(--sans);font-size:.92rem;font-weight:600;color:#063648;
+    padding:12px 16px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;
+    background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.72));
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    box-shadow:0 10px 22px -12px rgba(6,54,72,.6);
+    transition:transform .18s cubic-bezier(.16,1,.3,1),box-shadow .18s,background .18s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn:active{transform:translateY(0) scale(.98)}
+  .btn:focus-visible{outline:3px solid #063648;outline-offset:2px}
+  .btn .i{font-size:1.05rem;line-height:1}
+  .btn.primary{color:#fff;border-color:transparent;
+    background:linear-gradient(180deg,var(--hibisco),#a8274e);
+    box-shadow:0 12px 26px -10px rgba(168,39,78,.75)}
+  .btn.primary:hover{box-shadow:0 16px 30px -10px rgba(168,39,78,.85)}
+
+  .intro{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:20px;cursor:pointer;
+    background:radial-gradient(120% 90% at 50% 40%,rgba(30,120,140,.55),rgba(8,60,74,.86));
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    transition:opacity .8s ease,visibility .8s}
+  .intro.gone{opacity:0;visibility:hidden}
+  .intro .kicker{font-family:var(--script);color:#eafcff;font-size:clamp(2rem,9vw,3rem);
+    text-shadow:0 2px 14px rgba(0,0,0,.35);line-height:1;text-align:center}
+  .intro .sub{color:#eafcff;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;opacity:.9}
+  .drop{width:66px;height:66px;border-radius:50%;border:2px solid rgba(255,255,255,.85);
+    display:grid;place-items:center;color:#fff;font-size:1.6rem;
+    box-shadow:0 0 0 0 rgba(255,255,255,.5);animation:pulse 2.2s ease-out infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.45)}70%{box-shadow:0 0 0 26px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+  .ripple{position:fixed;border-radius:50%;pointer-events:none;z-index:9;
+    border:2px solid rgba(255,255,255,.7);transform:translate(-50%,-50%);animation:rip .9s ease-out forwards}
+  @keyframes rip{from{width:0;height:0;opacity:.8}to{width:180vmax;height:180vmax;opacity:0}}
+
+  .toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 22px);transform:translateX(-50%) translateY(20px);
+    z-index:12;background:rgba(6,54,72,.94);color:#eafcff;padding:12px 18px;border-radius:14px;
+    font-size:.9rem;box-shadow:0 14px 30px -12px rgba(0,0,0,.5);opacity:0;transition:.4s;max-width:88vw;text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  .mute{position:fixed;top:calc(env(safe-area-inset-top) + 10px);right:12px;z-index:11;
+    width:40px;height:40px;border-radius:50%;border:1px solid var(--vidro-borda);cursor:pointer;
+    background:var(--vidro);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#eafcff;font-size:1.05rem}
+
+  @media (prefers-reduced-motion:reduce){
+    .caustics,.card,.card::after{animation:none!important}
+    .card-wrap,.countdown,.actions{transition:opacity .4s!important;transform:none!important}
+  }
+</style>
+</head>
+<body>
+
+
+<div class="caustics" aria-hidden="true"></div>
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<button class="mute" id="mute" aria-label="Ativar ou silenciar som">🔊</button>
+
+<main class="stage" id="stage" aria-label="Convite Pool Party de 15 anos da Isabella">
+  <section class="countdown" aria-live="polite">
+    <div class="rot">faltam para a festa</div>
+    <div class="clock">
+      <div class="unit"><b id="d">00</b><span>dias</span></div>
+      <div class="unit"><b id="h">00</b><span>horas</span></div>
+      <div class="unit"><b id="m">00</b><span>min</span></div>
+      <div class="unit"><b id="s">00</b><span>seg</span></div>
+    </div>
+  </section>
+
+  <div class="card-wrap" id="cardWrap">
+    <figure class="card" id="card" style="margin:0">
+      <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3AfHXtTLFlASWvrXlhevIeftdpE/173705f0-87ff-4fc6-815c-c6f0fc9bed3b.jpg" alt="Convite Pool Party dos 15 anos da Isabella — sábado 22 de agosto, das 11h às 17h, no Espaço Azul Esporte e Eventos" />
+    </figure>
+  </div>
+
+  <nav class="actions" id="actions" aria-label="Ações do convite">
+    <a class="btn primary" id="rsvp" href="#" target="_blank" rel="noopener noreferrer"><span class="i">💌</span> Confirmar presença</a>
+    <a class="btn" id="maps" href="#" target="_blank" rel="noopener noreferrer"><span class="i">📍</span> Como chegar</a>
+    <a class="btn" id="cal" href="#" target="_blank" rel="noopener noreferrer"><span class="i">🗓️</span> Salvar a data</a>
+  </nav>
+</main>
+
+<div class="intro" id="intro" role="button" tabindex="0" aria-label="Toque para abrir o convite">
+  <div class="drop">💧</div>
+  <div class="kicker">Isabella faz 15</div>
+  <div class="sub">toque para abrir o convite</div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+  /* ---------- Dados do evento ---------- */
+  var EVENT = new Date("2026-08-22T11:00:00-03:00");
+  var START = "20260822T140000Z", END = "20260822T200000Z"; // 11h–17h BRT em UTC
+  var LOCAL = "Espaço Azul Esporte e Eventos - folha 26, Q.10, Lote 38";
+  var MAPS  = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Espaço Azul Esporte e Eventos folha 26 Quadra 10 Lote 38");
+  var CAL   = "https://calendar.google.com/calendar/render?action=TEMPLATE"
+            + "&text=" + encodeURIComponent("Pool Party — 15 anos da Isabella")
+            + "&dates=" + START + "/" + END
+            + "&details=" + encodeURIComponent("Te espero para comemorar esse dia especial! 🌺 Traga seu traje de banho. 🏊💙")
+            + "&location=" + encodeURIComponent(LOCAL);
+  var WPP_NUM = "5594981861443"; // WhatsApp da anfitriã
+  var WPP_TXT = "Olá! 🌺 Confirmo minha presença na Pool Party de 15 anos da Isabella — sábado, 22/08 às 11h, no Espaço Azul Esporte e Eventos. Mal posso esperar! 🏊💙";
+  var WPP = "https://wa.me/" + WPP_NUM + "?text=" + encodeURIComponent(WPP_TXT);
+
+  /* liga os links reais (âncoras funcionam em qualquer hospedagem) */
+  var aR=document.getElementById("rsvp"), aM=document.getElementById("maps"), aC=document.getElementById("cal");
+  aR.href=WPP; aM.href=MAPS; aC.href=CAL;
+
+  /* ---------- Contagem regressiva ---------- */
+  var d=document.getElementById("d"),h=document.getElementById("h"),m=document.getElementById("m"),s=document.getElementById("s");
+  var rot=document.querySelector(".rot");
+  function pad(n){return (n<10?"0":"")+n;}
+  function tick(){
+    var diff=EVENT-new Date();
+    if(diff<=0){ rot.textContent="é hoje! bora?"; d.textContent=h.textContent=m.textContent=s.textContent="00"; return; }
+    var sec=Math.floor(diff/1000);
+    d.textContent=pad(Math.floor(sec/86400));
+    h.textContent=pad(Math.floor(sec%86400/3600));
+    m.textContent=pad(Math.floor(sec%3600/60));
+    s.textContent=pad(sec%60);
+  }
+  tick(); setInterval(tick,1000);
+
+  /* ---------- Som (WebAudio, gerado) ---------- */
+  var AC=null, muted=false;
+  function actx(){ if(!AC){ try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){AC=null;} } return AC; }
+  function chime(freqs,dur,when){
+    var c=actx(); if(!c||muted) return; var t0=c.currentTime+(when||0);
+    freqs.forEach(function(f,i){
+      var o=c.createOscillator(),g=c.createGain();
+      o.type="sine"; o.frequency.value=f;
+      g.gain.setValueAtTime(0,t0+i*0.06);
+      g.gain.linearRampToValueAtTime(0.16,t0+i*0.06+0.02);
+      g.gain.exponentialRampToValueAtTime(0.0008,t0+i*0.06+dur);
+      o.connect(g); g.connect(c.destination); o.start(t0+i*0.06); o.stop(t0+i*0.06+dur+0.05);
+    });
+  }
+  var muteBtn=document.getElementById("mute");
+  muteBtn.addEventListener("click",function(){muted=!muted;muteBtn.textContent=muted?"🔈":"🔊";muteBtn.setAttribute("aria-pressed",muted);});
+
+  /* ---------- Abertura ---------- */
+  var intro=document.getElementById("intro"), stage=document.getElementById("stage");
+  function ripple(x,y){ if(reduce) return; var r=document.createElement("div"); r.className="ripple"; r.style.left=x+"px"; r.style.top=y+"px"; document.body.appendChild(r); setTimeout(function(){r.remove();},900); }
+  function open(e){
+    if(intro.classList.contains("gone")) return;
+    var x=(e&&e.clientX)||innerWidth/2, y=(e&&e.clientY)||innerHeight/2;
+    ripple(x,y); actx(); chime([523.25,659.25,783.99,1046.5],0.9);
+    intro.classList.add("gone");
+    document.body.classList.add("revealed");
+    setTimeout(function(){intro.style.display="none";},850);
+  }
+  intro.addEventListener("click",open);
+  intro.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" ")open(e);});
+  setTimeout(function(){ if(!document.body.classList.contains("revealed")) document.body.classList.add("revealed"); },6000);
+
+  /* ---------- Toast ---------- */
+  var toast=document.getElementById("toast"),tt;
+  function say(msg){ toast.textContent=msg; toast.classList.add("show"); clearTimeout(tt); tt=setTimeout(function(){toast.classList.remove("show");},3600); }
+
+  /* ---------- Efeitos ao clicar (a navegação é nativa dos links <a>) ---------- */
+  aM.addEventListener("click",function(){chime([392,523.25],0.5);say("Abrindo o mapa… 📍");});
+  aC.addEventListener("click",function(){chime([392,523.25],0.5);say("Abrindo o calendário… 🗓️");});
+  aR.addEventListener("click",function(e){
+    burst(e.clientX||innerWidth/2, e.clientY||innerHeight*0.8);
+    chime([659.25,830.6,987.77,1318.5],0.85);
+    say("Que alegria! Confirme no WhatsApp 💌");
+  });
+
+  /* ---------- Parallax ---------- */
+  var card=document.getElementById("card");
+  if(!reduce){
+    stage.addEventListener("pointermove",function(e){
+      var cx=innerWidth/2, cy=innerHeight/2;
+      var rx=((e.clientY-cy)/cy)*-4, ry=((e.clientX-cx)/cx)*5;
+      card.style.transform="rotateX("+rx+"deg) rotateY("+ry+"deg)";
+    });
+    stage.addEventListener("pointerleave",function(){card.style.transform="";});
+    window.addEventListener("deviceorientation",function(ev){
+      if(ev.gamma==null) return;
+      var ry=Math.max(-6,Math.min(6,ev.gamma/6)), rx=Math.max(-6,Math.min(6,(ev.beta-45)/8));
+      card.style.transform="rotateX("+(-rx)+"deg) rotateY("+ry+"deg)";
+    });
+  }
+
+  /* ---------- Pétalas ---------- */
+  var cv=document.getElementById("petals"),cx=cv.getContext("2d"),W,H,DPR;
+  var COLORS=["#c9315f","#f2714e","#f4c84a","#7ec8e3","#ffd1dc","#ffffff"];
+  function resize(){DPR=Math.min(devicePixelRatio||1,2);W=cv.width=innerWidth*DPR;H=cv.height=innerHeight*DPR;cv.style.width=innerWidth+"px";cv.style.height=innerHeight+"px";}
+  resize(); addEventListener("resize",resize);
+  function Petal(burst,px,py){ this.reset(burst,px,py); }
+  Petal.prototype.reset=function(burst,px,py){
+    this.x=(px!=null?px*DPR:Math.random()*W);
+    this.y=(py!=null?py*DPR:Math.random()*-H*0.3);
+    this.r=(6+Math.random()*8)*DPR;
+    this.c=COLORS[(Math.random()*COLORS.length)|0];
+    this.rot=Math.random()*Math.PI*2; this.vr=(Math.random()-.5)*0.06;
+    this.sway=Math.random()*Math.PI*2;
+    if(burst){ var a=Math.random()*Math.PI*2, sp=(4+Math.random()*7)*DPR; this.vx=Math.cos(a)*sp; this.vy=Math.sin(a)*sp-4*DPR; this.life=1; this.burst=true; }
+    else { this.vx=0; this.vy=(0.5+Math.random()*0.9)*DPR; this.life=1; this.burst=false; }
+  };
+  Petal.prototype.step=function(){
+    if(this.burst){ this.vy+=0.18*DPR; this.vx*=0.985; this.x+=this.vx; this.y+=this.vy; this.life-=0.012; }
+    else { this.sway+=0.02; this.x+=Math.sin(this.sway)*0.6*DPR; this.y+=this.vy; if(this.y>H+20){this.reset(false);} }
+    this.rot+=this.vr;
+  };
+  Petal.prototype.draw=function(){
+    cx.save();cx.translate(this.x,this.y);cx.rotate(this.rot);cx.globalAlpha=this.burst?Math.max(0,this.life):0.85;
+    cx.fillStyle=this.c;cx.beginPath();
+    cx.moveTo(0,-this.r);
+    cx.bezierCurveTo(this.r,-this.r,this.r,this.r*0.7,0,this.r);
+    cx.bezierCurveTo(-this.r,this.r*0.7,-this.r,-this.r,0,-this.r);
+    cx.fill();cx.restore();
+  };
+  var petals=[]; var AMBIENT=reduce?0:16;
+  for(var i=0;i<AMBIENT;i++)petals.push(new Petal(false));
+  function burst(px,py){ if(reduce)return; for(var i=0;i<26;i++)petals.push(new Petal(true,px,py)); }
+  function loop(){
+    cx.clearRect(0,0,W,H);
+    for(var i=petals.length-1;i>=0;i--){var p=petals[i];p.step();p.draw();if(p.burst&&p.life<=0)petals.splice(i,1);}
+    requestAnimationFrame(loop);
+  }
+  if(!reduce) loop();
+})();
+</script>
+
+</body>
+</html>
