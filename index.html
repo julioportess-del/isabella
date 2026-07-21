@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pool Party — 15 anos da Isabella">
-<meta property="og:description" content="Sábado, 22/08 · 11h às 17h · Espaço Azul. Toque para abrir o convite 🌺🏊">
+<meta property="og:description" content="Sábado, 22/08 · 11h às 17h · Espaço Azul. Toque para abrir o convite 🌹🏊">
 <meta property="og:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_3AfHXtTLFlASWvrXlhevIeftdpE/173705f0-87ff-4fc6-815c-c6f0fc9bed3b.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0e5a70">
@@ -97,10 +97,18 @@
   .intro .kicker{font-family:var(--script);color:#eafcff;font-size:clamp(2rem,9vw,3rem);
     text-shadow:0 2px 14px rgba(0,0,0,.35);line-height:1;text-align:center}
   .intro .sub{color:#eafcff;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;opacity:.9}
-  .drop{width:66px;height:66px;border-radius:50%;border:2px solid rgba(255,255,255,.85);
-    display:grid;place-items:center;color:#fff;font-size:1.6rem;
-    box-shadow:0 0 0 0 rgba(255,255,255,.5);animation:pulse 2.2s ease-out infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.45)}70%{box-shadow:0 0 0 26px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+  .drop{width:72px;height:72px;border-radius:50%;border:1px solid rgba(255,255,255,.5);
+    display:grid;place-items:center;color:#fff;font-size:2rem;background:rgba(255,255,255,.08);
+    box-shadow:0 0 0 0 rgba(255,255,255,.5);animation:pulse 2.4s ease-out infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.4)}70%{box-shadow:0 0 0 24px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+  .rose-fall{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+  .rose-fall span{position:absolute;top:-12%;will-change:transform;
+    filter:drop-shadow(0 3px 6px rgba(6,54,72,.35));animation:rosefall linear infinite}
+  @keyframes rosefall{
+    0%{transform:translate(0,-12vh) rotate(0deg);opacity:0}
+    8%{opacity:.95}
+    100%{transform:translate(var(--sway,0px),114vh) rotate(340deg);opacity:.85}}
+  .intro .drop,.intro .kicker,.intro .sub{position:relative;z-index:1}
   .ripple{position:fixed;border-radius:50%;pointer-events:none;z-index:9;
     border:2px solid rgba(255,255,255,.7);transform:translate(-50%,-50%);animation:rip .9s ease-out forwards}
   @keyframes rip{from{width:0;height:0;opacity:.8}to{width:180vmax;height:180vmax;opacity:0}}
@@ -153,8 +161,8 @@
 </main>
 
 <div class="intro" id="intro" role="button" tabindex="0" aria-label="Toque para abrir o convite">
-  <div class="drop">💧</div>
-  <div class="kicker">Isabella faz 15</div>
+  <div class="drop">🌹</div>
+  <div class="kicker">Isabella faz XV</div>
   <div class="sub">toque para abrir o convite</div>
 </div>
 
@@ -229,6 +237,23 @@
   intro.addEventListener("click",open);
   intro.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" ")open(e);});
   setTimeout(function(){ if(!document.body.classList.contains("revealed")) document.body.classList.add("revealed"); },6000);
+
+  /* rosas caindo na tela de abertura */
+  if(!reduce){
+    var rf=document.createElement("div"); rf.className="rose-fall"; rf.setAttribute("aria-hidden","true");
+    var EM=["🌹","🌹","🌸","🌹","🌷"];
+    for(var ri=0; ri<18; ri++){
+      var sp=document.createElement("span");
+      sp.textContent=EM[(Math.random()*EM.length)|0];
+      sp.style.left=(Math.random()*96)+"%";
+      sp.style.fontSize=(18+Math.random()*22)+"px";
+      sp.style.animationDuration=(5.5+Math.random()*5)+"s";
+      sp.style.animationDelay=(-Math.random()*9)+"s";
+      sp.style.setProperty("--sway",(Math.random()*80-40)+"px");
+      rf.appendChild(sp);
+    }
+    intro.insertBefore(rf, intro.firstChild);
+  }
 
   /* ---------- Toast ---------- */
   var toast=document.getElementById("toast"),tt;
