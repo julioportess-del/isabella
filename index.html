@@ -155,7 +155,6 @@
 
   <nav class="actions" id="actions" aria-label="Ações do convite">
     <a class="btn primary" id="rsvp" href="#" target="_blank" rel="noopener noreferrer"><span class="i">💌</span> Confirmar presença</a>
-    <a class="btn" id="maps" href="#" target="_blank" rel="noopener noreferrer"><span class="i">📍</span> Como chegar</a>
     <a class="btn" id="cal" href="#" target="_blank" rel="noopener noreferrer"><span class="i">🗓️</span> Salvar a data</a>
   </nav>
 </main>
@@ -197,7 +196,6 @@
   var EVENT = new Date("2026-08-22T11:00:00-03:00");
   var START = "20260822T140000Z", END = "20260822T200000Z"; // 11h–17h BRT em UTC
   var LOCAL = "ARENA PREMIER - Rua Luiz Gonzaga, Qd 332, Lt 3 - Bairro da Paz, Marabá - PA";
-  var MAPS  = "https://www.google.com/maps/search/?api=1&query=-5.3822292%2C-49.1241624";
   var CAL   = "https://calendar.google.com/calendar/render?action=TEMPLATE"
             + "&text=" + encodeURIComponent("Pool Party — 15 anos da Isabella")
             + "&dates=" + START + "/" + END
@@ -208,8 +206,8 @@
   var WPP = "https://wa.me/" + WPP_NUM + "?text=" + encodeURIComponent(WPP_TXT);
 
   /* liga os links reais (âncoras funcionam em qualquer hospedagem) */
-  var aR=document.getElementById("rsvp"), aM=document.getElementById("maps"), aC=document.getElementById("cal");
-  aR.href=WPP; aM.href=MAPS; aC.href=CAL;
+  var aR=document.getElementById("rsvp"), aC=document.getElementById("cal");
+  aR.href=WPP; aC.href=CAL;
 
   /* ---------- Contagem regressiva ---------- */
   var d=document.getElementById("d"),h=document.getElementById("h"),m=document.getElementById("m"),s=document.getElementById("s");
@@ -286,7 +284,6 @@
   function say(msg){ toast.textContent=msg; toast.classList.add("show"); clearTimeout(tt); tt=setTimeout(function(){toast.classList.remove("show");},3600); }
 
   /* ---------- Efeitos ao clicar (a navegação é nativa dos links <a>) ---------- */
-  aM.addEventListener("click",function(){chime([392,523.25],0.5);say("Abrindo o mapa… 📍");});
   aC.addEventListener("click",function(){chime([392,523.25],0.5);say("Abrindo o calendário… 🗓️");});
   aR.addEventListener("click",function(e){
     burst(e.clientX||innerWidth/2, e.clientY||innerHeight*0.8);
